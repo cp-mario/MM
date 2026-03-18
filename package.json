@@ -1,0 +1,15 @@
+{
+  "name": "mm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "main": "node main.js"
+  },
+  "keywords": [],
+  "author": "Mario",
+  "license": "",
+  "packageManager": "pnpm@10.15.0",
+  "type": "module"
+
+}

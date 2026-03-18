@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>📚 Documentación Completa - Ejemplo de Uso</title>
+</head>
+<body>
+    <button id="icon-btn2">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="black" stroke-width="2"/>
+      </svg>
+    </button>
+    <main><h1>📚 Documentación Completa - Ejemplo de Uso</h1>
+<div class="note"><span class="note-label">Note:</span><p>Esta es una nota importante al inicio del documento. Las notas se usan para destacar información clave, advertencias o tips que el lector no debe pasar por alto.</p></div>
+<h1>Introducción al Proyecto</h1>
+<p>Bienvenido a la <strong>documentación oficial</strong> del proyecto. Este archivo `.mm` demuestra <em>todas las funcionalidades</em> del parser, incluyendo:<br>- <strong>Formato de texto</strong>: negritas, <em>cursivas</em>, <a target="_blank" href="https://ejemplo.com">enlaces</a><br>- <strong>Imágenes</strong>: <img alt="Logo" src="./assetsInternos/img/logo.png"><br>- <strong>Encabezados</strong>: desde `# H1` hasta `###### H6`<br>- <strong>Notas</strong>: bloques `:::note` con contenido anidado<br>- <strong>Saltos de línea</strong>: usando `#b` para control preciso</p><h2>Estructura del Contenido</h2>
+<p>El parser procesa el contenido en <strong>tres fases</strong>:<br>1. <strong>Fase 1 - Monolínea</strong>: Headers y marcadores especiales<br>2. <strong>Fase 2 - Multilínea</strong>: Bloques como `:::note` con soporte para anidamiento<br>3. <strong>Fase 3 - Inline</strong>: Formato dentro de párrafos (<strong>negrita</strong>, <em>cursiva</em>)</p>
+<div class="note"><span class="note-label">Note:</span><p>El orden de procesamiento es crítico. Los bloques multilínea se procesan antes que el formato inline para evitar conflictos con sintaxis anidada.</p></div>
+<h3>Subsección: Ejemplo de Código Falso</h3>
+<p>Aunque este parser no tiene soporte nativo para bloques de código, puedes simularlos usando notas:</p>
+<div class="note"><span class="note-label">Note:</span><p>```javascript<br>// Esto es texto plano dentro de una nota<br>const ejemplo = "Hola mundo";<br>console.log(ejemplo); // Salida: Hola mundo<br>```</p></div>
+<h2>Características Detalladas</h2>
+<h3>🔹 Encabezados Jerárquicos</h3>
+<h1>Nivel 1 - Título Principal</h1>
+<h2>Nivel 2 - Sección Importante</h2>
+<h3>Nivel 3 - Subsección</h3>
+<h4>Nivel 4 - Detalle Técnico</h4>
+<h5>Nivel 5 - Nota al Pie</h5>
+<h6>Nivel 6 - Referencia Mínima</h6>
+<p>Cada nivel de encabezado genera una etiqueta HTML semántica (`<h1>` a `<h6>`), lo que mejora la <strong>accesibilidad</strong> y el <strong>SEO</strong> del documento final.</p>
+<h3>🔹 Formato de Texto Inline</h3>
+<p>Puedes combinar <strong>negritas</strong> con <em>cursivas</em> para <strong><em>énfasis máximo</strong></em>. También es posible incluir <a target="_blank" href="https://github.com">enlaces externos</a>.</p>
+<div class="note"><span class="note-label">Note:</span><p><strong>Tip profesional</strong>: Usa enlaces internos para crear una tabla de contenidos manual o para referenciar secciones largas sin que el lector pierda el contexto.</p></div>
+<h3>🔹 Imágenes y Multimedia</h3>
+<p>Para insertar imágenes, usa la sintaxis de Markdown estándar:<br><img alt="Diagrama de arquitectura" src="./assetsInternos/img/arquitectura.png"><br>La imagen se renderizará con el atributo `alt` para accesibilidad. Si la imagen no carga, el texto alternativo se mostrará en su lugar.</p><h2>Sección de Notas Avanzadas</h2>
+<p>Las notas pueden contener <strong>cualquier contenido</strong>, incluyendo otros formatos:</p>
+<div class="note"><span class="note-label">Note:</span><h3>Título dentro de una nota</h3>
+<p>Esto es un párrafo con <strong>negrita</strong>, <em>cursiva</em> y un <a target="_blank" href="#">enlace</a>.<br>- Lista con guiones<br>- Otro elemento<br>- <strong>Elemento importante</strong><br>1. Lista numerada<br>2. Segundo paso<br>3. <em>Paso opcional</em><br><img alt="Icono" src="./assetsInternos/img/icono-note.png"></p></div>
+<h3>Anidamiento de Notas (Experimental)</h3>
+<div class="note"><span class="note-label">Note:</span><p>Esta es la nota exterior.</p>
+<div class="note"><span class="note-label">Note:</span><p>Esta es una nota <strong>interior</strong>. El parser usa un stack para manejar el anidamiento correctamente.</p></div>
+<p>Fin de la nota exterior.</p></div><h2>Control de Saltos de Línea</h2>
+<p>Por defecto, el parser agrupa líneas consecutivas en un mismo párrafo `<p>`, convirtiendo los saltos de línea en `<br>`.<br>Línea 1 del párrafo.<br>Línea 2 del mismo párrafo.<br>Línea 3 que también se une.</p><p>Pero si necesitas un salto forzado entre bloques, usa `#b`:<br>Este párrafo termina aquí.</p><p>Y este nuevo párrafo comienza separado visualmente, sin margen extra de párrafo HTML.</p>
+<h2>Enlaces y Navegación</h2>
+<h3>Enlaces Externos</h3>
+<p>- <a target="_blank" href="https://ejemplo.com/docs">Documentación Oficial</a><br>- <a target="_blank" href="https://github.com/usuario/proyecto">Repositorio GitHub</a><br>- <a target="_blank" href="https://foro.ejemplo.com">Comunidad de Soporte</a></p>
+<h3>Enlaces Internos (Anclas)</h3>
+<p>Los encabezados generan IDs automáticos que puedes usar como anclas:<br>- <a target="_blank" href="#introducción-al-proyecto">Ir a Introducción</a><br>- <a target="_blank" href="#características-detalladas">Ver Características</a><br>- <a target="_blank" href="#sección-de-notas-avanzadas">Saltar a Notas</a></p>
+<div class="note"><span class="note-label">Note:</span><p><strong>Importante</strong>: Los IDs se generan a partir del texto del encabezado. Evita caracteres especiales o usa enlaces explícitos si necesitas control total.</p></div>
+<h2>Listas y Estructura</h2>
+<h3>Lista No Ordenada</h3>
+<p>- Elemento principal<br>- Subelemento con sangría<br>- Otro subelemento<br>- Segundo elemento principal<br>* Elemento con asterisco (también funciona)</p>
+<h3>Lista Ordenada</h3>
+<p>1. Primer paso del proceso<br>2. Segundo paso, más detallado<br>3. Tercer paso con <strong>énfasis</strong></p>
+<div class="note"><span class="note-label">Note:</span><p>Las listas se procesan como texto plano dentro de párrafos. Para listas HTML nativas (`<ul>`, `<ol>`), el parser necesitaría una extensión futura.</p></div><h2>Combinación de Características</h2>
+<p>Aquí demostramos cómo combinar <strong>múltiples características</strong> en un solo bloque:</p>
+<div class="note"><span class="note-label">Note:</span><h3>🚀 Ejemplo Integrado</h3>
+<p>Comenzamos con un encabezado dentro de la nota.<br>Luego, texto con <strong>negritas</strong>, <em>cursivas</em> y <strong><em>ambos</strong></em>.<br>Agregamos una imagen: <img alt="Icono" src="./assetsInternos/img/check.png"><br>Y un enlace útil: <a target="_blank" href="#características-detalladas">Más información</a></p>
+<p></p>
+<p>Finalmente, un salto forzado dentro de la nota para separar conceptos.<br>Este es el contenido posterior al salto.</p></div>
+<h1>Consideraciones Finales</h1>
+<p>Este documento de ejemplo ha cubierto:<br>✅ <strong>Encabezados</strong> de todos los niveles (`#` a `######`)<br>✅ <strong>Formato inline</strong>: <strong>negrita</strong>, <em>cursiva</em>, <a target="_blank" href="#">enlaces</a>, <img alt="imágenes" src="#"><br>✅ <strong>Notas multilínea</strong> con `:::note` y soporte para anidamiento<br>✅ <strong>Control de párrafos</strong> con agrupación automática y `#b` para saltos forzados<br>✅ <strong>Estructura jerárquica</strong> para documentación extensa</p>
+<div class="note"><span class="note-label">Note:</span><p><strong>Próximas mejoras previstas</strong>:<br>- Soporte para bloques de código con resaltado de sintaxis<br>- Tablas con sintaxis Markdown<br>- Definición de IDs personalizados para encabezados<br>- Variables de plantilla adicionales (`{{author}}`, `{{date}}`, etc.)</p></div><h2>Recursos Adicionales</h2>
+<p>- 📁 Carpeta `assetsInternos/`: Contiene CSS, JS e imágenes compartidas<br>- ⚙️ Archivo `config.json`: Configuración del proyecto y menú de navegación<br>- 📄 Carpeta `pages/`: Todos los archivos `.mm` que se convertirán a HTML<br>- 🔄 Script `parser.js`: Motor de conversión `.mm` → HTML<br><img alt="Flujo de trabajo" src="./assetsInternos/img/flujo-workflow.png"></p><p><strong><em><br></em>Documento generado con el parser `.mm` → HTML. Última actualización: 2026.<em><br><a target="_blank" href="#-documentación-completa---ejemplo-de-uso">⬆️ Volver al inicio</a><br>```<br>💡 </strong>Para usarlo<strong>:<br>1. Crea un archivo `ejemplo-completo.mm` en tu carpeta `pages/`<br>2. Copia y pega todo el contenido de arriba (sin las comillas del bloque de código)<br>3. Ejecuta tu parser: `node parser.js`<br>4. Revisa el resultado en `output/.../pages/ejemplo-completo.html`<br>✅ </strong>Tips extra</em>*:<br>- Asegúrate de que las rutas de las imágenes (`./assetsInternos/img/...`) coincidan con tu estructura real<br>- Si usas enlaces internos (`#sección`), verifica que los encabezados tengan el texto exacto<br>- Las notas anidadas funcionan, pero úsalas con moderación para no complicar la lectura</p></main>
+    <aside id="sidebar-container"></aside>
+</body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+    .note{
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: rgb(255, 255, 131);
+        border-radius: 15px;
+        padding: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        
+    }
+
+
+
+    /* Horizontal */
+    @media screen and (orientation: landscape), 
+        screen and (min-width: 1000px) {
+        
+        main {
+            align-items: center;
+            padding-right: 10%;
+            padding-left: 10%;
+        }
+
+        aside{
+            top: 0;
+            left: 0;
+    }}
+    
+    .note > p{
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
+
+    h1,h2,h3,h4,h5,h6  {
+        font-weight: bold;
+    }
+
+    .note-label {
+    color: #007bff;
+    font-weight: bolder;
+    }
+
+    body{
+        display: block;
+        font-family: "Lato", sans-serif;
+        align-items: center;
+        margin: 0;
+        background-color: #f3f7fb;
+    }
+
+</style>
+
+<script>
+    
+  const path = window.location.pathname;
+  const parts = path.split("/").filter(p => p.length > 0);
+  const rootIndex = parts.indexOf("pages");
+  const depth = rootIndex === -1 ? 0 : parts.length - (rootIndex + 1);
+  const prefix = "../".repeat(depth);
+
+  const script = document.createElement("script");
+  script.src = prefix + "assetsInternos/script.js";
+  document.body.appendChild(script);
+
+</script>
+</html>

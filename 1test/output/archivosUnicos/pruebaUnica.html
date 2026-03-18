@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Documentación</title>
+</head>
+<body>
+    <main><p>#Esto es una prueba</p></main>
+    <aside id="sidebar-container"></aside>
+</body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+    .note{
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: rgb(255, 255, 131);
+        border-radius: 15px;
+        padding: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        
+    }
+
+
+    main {
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
+
+    /* Horizontal */
+    @media screen and (orientation: landscape), 
+        screen and (min-width: 768px) {
+        
+        main {
+            align-items: center;
+            padding-right: 10%;
+            padding-left: 10%;
+            margin-left: 250px;
+        }
+
+        aside{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100vh;
+        }
+
+
+
+    }
+
+    /* Vertical */
+    @media screen and (orientation: portrait) {
+        main {
+            padding-left: 5%;
+            padding-right: 5%;
+        }
+    }
+
+    .note > p{
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
+
+    h1,h2,h3,h4,h5,h6  {
+        font-weight: bold;
+    }
+
+    .note-label {
+    color: #007bff;
+    font-weight: bolder;
+    }
+
+    body{
+        display: flex;
+        font-family: "Lato", sans-serif;
+        align-items: center;
+    }
+
+    aside{
+        width: 300px;
+        background-color: #5b7db7;
+        font-family: "Archivo Black", sans-serif;
+        padding-top: 0;
+        overflow-y: auto;
+        scrollbar-gutter: stable; 
+        text-overflow: ellipsis;
+        hyphens: auto;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        }
+
+    aside  a, aside a:visited, aside a:active {
+        color: rgb(164, 173, 67) !important;
+        text-decoration: none !important;
+    }
+
+    aside a:hover{
+        color: rgb(190, 201, 65) !important;
+        text-decoration: none !important;
+    }
+
+
+
+</style>
+<script>
+    
+  const path = window.location.pathname;
+  const parts = path.split("/").filter(p => p.length > 0);
+  const rootIndex = parts.indexOf("pages");
+  const depth = rootIndex === -1 ? 0 : parts.length - (rootIndex + 1);
+  const prefix = "../".repeat(depth);
+
+  const script = document.createElement("script");
+  script.src = prefix + "assetsInternos/script.js";
+  document.body.appendChild(script);
+
+</script>
+</html>

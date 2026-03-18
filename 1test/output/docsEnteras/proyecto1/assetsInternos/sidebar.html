@@ -1,0 +1,212 @@
+<nav id="sidebar">
+  <div id="div-titulo">
+    <a id="sidebar-title" href = '/'>Contenido</a>
+    <button id="icon-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="#e5edf4" stroke-width="2"/>
+      </svg>
+    </button>
+  </div>
+  
+  <div id="sidebar-menu"></div>
+</nav>
+<style>
+.folder-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+  margin: 4px 0;
+  color: #3c4e6c;
+}
+
+.folder-icon svg {
+  vertical-align: middle;
+}
+
+.folder-title {
+  font-weight: bold;
+}
+
+.folder-content.collapsed {
+  display: none;
+}
+
+#sidebar-menu {
+  padding: 14px;
+  padding-bottom: 20%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+}
+
+
+
+#sidebar-menu {
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.35) transparent;
+}
+
+
+#sidebar-menu::-webkit-scrollbar {
+  width: 10px;
+}
+
+#sidebar-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#sidebar-menu::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.35);
+  border-radius: 6px;
+}
+
+#sidebar-menu::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.5);
+}
+
+
+#sidebar-title, #sidebar-title:visited, #sidebar-title:active{
+  align-self: center;
+  color: #283143 !important;
+  font-size: 30px;
+  text-align: center;
+}
+
+#sidebar{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+}
+
+#div-titulo{
+  display: flex;
+  justify-content: space-between;
+  background-color: #6f98c2;
+
+}
+
+#icon-btn, #icon-btn2{
+  background-color: transparent;
+  border-color: transparent;
+}
+
+#icon-btn:hover, #icon-btn2:hover{
+  background-color:#b4b4b42f;
+  border-color: transparent;
+}
+
+
+#sidebar-title:hover{
+  align-self: center;
+  color: rgb(0, 0, 0) !important;
+  font-size: 30px;
+  background-color: #b4b4b42f;
+  text-align: center;
+}
+
+
+aside{
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  font-family: "Archivo Black", sans-serif;
+  padding-top: 0;
+  overflow-y: auto;
+  scrollbar-gutter: stable; 
+  text-overflow: ellipsis;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+aside  a, aside a:visited, aside a:active {
+  color: #5474a9 !important;
+  text-decoration: none !important;
+}
+
+aside a:hover{
+  color: rgb(190, 201, 65) !important;
+  text-decoration: none !important;
+}
+
+#icon-btn2{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+/* Sidebar oculto por defecto */
+#sidebar{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background: #8bb1cf;
+  z-index: 900;
+  
+}
+
+/* Sidebar visible */
+#sidebar.show {
+  display: flex;
+}
+
+/* Cuando el botón está activo */
+#icon-btn2.active{
+  z-index: 0;
+}
+
+@media screen and (max-width: 999px){
+  main {
+    align-items: center;
+    padding-right: 6%;
+    padding-left: 6%;
+  }
+
+  #icon-btn2{
+    z-index: 9999;
+  }
+
+}
+
+@media screen and (min-width: 1000px){
+  main.sidebarActiva{
+    margin-left: 300px;
+  }
+
+  main{
+    margin-left: 0px;
+  }
+}
+
+
+
+@media screen and (min-width: 1700px) {
+  main {
+    padding-inline: 500px;
+  }
+  main.sidebarActiva {
+    padding-inline: 300px;
+  }
+}
+
+@media screen and (min-width: 2200px) {
+  main {
+    padding-inline: 1000px;
+  }
+  main.sidebarActiva {
+    padding-inline: 500px;
+  }
+}
+
+
+
+</style>
