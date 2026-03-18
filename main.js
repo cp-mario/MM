@@ -2,7 +2,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { mmToHtml } from "./scripts/parser.js";
+import { mmxToHtml } from "./scripts/parser.js";
 //=================================================
 
 //Importante
@@ -22,7 +22,7 @@ const CONFIG = {
   },
 
   single: {
-    input: "./1test/tusProyectos/archivosUnicos/pruebaUnica.mm", //archivo.mm
+    input: "./1test/tusProyectos/archivosUnicos/pruebaUnica.mmx", //archivo.mmx
     output: "./1test/output/archivosUnicos/pruebaUnica.html"  //archivo que se generara
   }
 };
@@ -108,12 +108,12 @@ function processProjectStructure(sourceDir, outputDir, options = {}) {
   if (!fs.existsSync(pagesDest)) fs.mkdirSync(pagesDest, { recursive: true });
 
   processPagesRecursive(pagesSource, pagesDest, stats, { deleteOriginals, log });
-  //Procesar index.mm en la raíz del proyecto
-  const rootIndexMm = path.join(sourceDir, "index.mm");
-  if (fs.existsSync(rootIndexMm)) {
+  //Procesar index.mmx en la raíz del proyecto
+  const rootIndexMmx = path.join(sourceDir, "index.mmx");
+  if (fs.existsSync(rootIndexMmx)) {
     const rootIndexHtml = path.join(outputDir, "index.html");
-    log(`index.mm → index.html`);
-    convertMmFile(rootIndexMm, rootIndexHtml);
+    log(`index.mmx → index.html`);
+    convertMmxFile(rootIndexMmx, rootIndexHtml);
     stats.processed++;
   }
 
@@ -160,13 +160,13 @@ function processPagesRecursive(sourceDir, outputDir, stats, options) {
       if (!fs.existsSync(destPath)) fs.mkdirSync(destPath, { recursive: true });
       processPagesRecursive(srcPath, destPath, stats, options);
 
-    } else if (item.endsWith('.mm')) {
+    } else if (item.endsWith('.mmx')) {
       try {
-        const htmlName = item.replace('.mm', '.html');
+        const htmlName = item.replace('.mmx', '.html');
         const htmlDest = path.join(outputDir, htmlName);
 
         log(`${item} → ${htmlName}`);
-        convertMmFile(srcPath, htmlDest);
+        convertMmxFile(srcPath, htmlDest);
         stats.processed++;
 
         if (deleteOriginals) fs.unlinkSync(srcPath);
@@ -194,10 +194,10 @@ const scriptContent = `
   document.body.appendChild(script);
 `;
 
-function convertMmFile(inputPath, outputPath) {
+function convertMmxFile(inputPath, outputPath) {
   const content = fs.readFileSync(inputPath, "utf8");
   const template = fs.readFileSync("./template.html", "utf8");
-  const htmlContent = mmToHtml(content);
+  const htmlContent = mmxToHtml(content);
 
   const titleMatch = content.match(/^# (.+)$/m);
   const title = titleMatch ? titleMatch[1] : "Documentación";
@@ -245,7 +245,7 @@ function main() {
     try {
       const content = fs.readFileSync(input, "utf8");
       const template = fs.readFileSync("./template.html", "utf8");
-      const htmlContent = mmToHtml(content);
+      const htmlContent = mmxToHtml(content);
 
       const titleMatch = content.match(/^# (.+)$/m);
       const title = titleMatch ? titleMatch[1] : "Documentación";

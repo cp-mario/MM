@@ -3,8 +3,8 @@ import { PATTERNS } from "./patterns.js";
 // ============================================================================
 // PARSER PRINCIPAL
 // ============================================================================
-export function mmToHtml(mm) {
-  let result = mm;
+export function mmxToHtml(mmx) {
+  let result = mmx;
   for (const { regex, replace } of PATTERNS.monoline) {
     result = result.replace(regex, replace);
   }
