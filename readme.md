@@ -14,7 +14,7 @@ config.json con :
 }
 ```
 
-assets (carpeta opcional y aun no disponible)
+assets (carpeta opcional, para hacer referencia en algun recurso poner "assets/rutadelrecursoenassets")
 pages (carpeta obligatoria con todos los .mmx y con subcarpetas para hacer categorias)
 index.mmx la pagina inicial de la web
 

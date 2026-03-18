@@ -1,1 +1,13 @@
 # Indice (:
+
+:::note
+Puedes crear notas así
+:::
+
+Tambien puedes usar **negrita**, *cursiva* o ***ambas***
+
+![Puedes poner imagenes](https://placehold.net/main.svg)
+poner imagenes desde una url
+![Puedes poner imagenes](assets/foto.png)
+o desde la carpeta assets
+![Y si no carga la imagen se pone un alt](assets/fotoquenoexiste.png)

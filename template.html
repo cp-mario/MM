@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{title}}</title>
-</head>
-<body>
-    <button id="icon-btn2">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M3 6h18M3 12h18M3 18h18" stroke="black" stroke-width="2"/>
-      </svg>
-    </button>
-    <main>{{content}}</main>
-    <aside id="sidebar-container"></aside>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{title}}</title>
+    </head>
+    <body>
+        <button id="icon-btn2">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="black" stroke-width="2"/>
+          </svg>
+        </button>
+        <main>{{content}}</main>
+        <aside id="sidebar-container"></aside>
+    </body>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
@@ -71,9 +71,26 @@
         background-color: #f3f7fb;
     }
 
+
+
+    img {
+        width: 300px;
+        height: auto;
+        padding: 20px;
+        padding-left: 0;
+    }
+
 </style>
 
 <script>
     {{script}}
+</script>
+
+<script>
+    document.querySelectorAll('a[href^="assets/"]').forEach(a => {
+    const original = a.getAttribute("href");
+    a.href = prefix + original;
+});
+
 </script>
 </html>
