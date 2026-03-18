@@ -11,3 +11,5 @@ poner imagenes desde una url
 ![Puedes poner imagenes](assets/foto.png)
 o desde la carpeta assets
 ![Y si no carga la imagen se pone un alt](assets/fotoquenoexiste.png)
+tambien puede poner enlazes
+[Ejemplo](https://example.com)

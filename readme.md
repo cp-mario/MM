@@ -1,4 +1,4 @@
-# MM
+# MMX
 
 Esta utilidad te permite utilizando un formato propio similar al md crear una documentación o una pagina unica.
 
