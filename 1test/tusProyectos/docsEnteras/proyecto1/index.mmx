@@ -1,15 +1,66 @@
-# Indice (:
+# MMX (:
+This title dont have id and because is the # title, its the title of the page too
+
+## Title 2 %{2}%
+This title do have id
 
 :::note
-Puedes crear notas así
+This is a note
 :::
 
-Tambien puedes usar **negrita**, *cursiva* o ***ambas***
+You can add blank lines
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
+#b
 
-![Puedes poner imagenes](https://placehold.net/main.svg)
-poner imagenes desde una url
-![Puedes poner imagenes](assets/foto.png)
-o desde la carpeta assets
-![Y si no carga la imagen se pone un alt](assets/fotoquenoexiste.png)
-tambien puede poner enlazes
-[Ejemplo](https://example.com)
+Also you can use **bold**, *italic* or ***both***
+
+![Image](https://placehold.net/main.svg)
+You can use images from a URL
+![Image](assets/foto.png)
+or from the assets folder
+![A alternative if the image dont load](assets/fotoquenoexiste.png)
+Also you can put a URL
+[Example](https://example.com)
+And you can go to a heading in your document like a URL but with #id instead of the URL
+[H2](#2)
+You can link to another page on your document like the heading but with pages/path/to/the/page/from/pages (remember the .html)
+[Introduction](pages/Introduction MMX.html)
+
+some inline `codeffffffff df df dsf fd d it can be in diferent lines` or 
+
+
+:::code auto
+function test() { gf g fg fg fg fg f g gf fdg g f g fgd gf g gf gf fg g g fg
+    return "with auto highlighting if you put the auto tag";
+}
+:::
+
+:::code
+function test() {
+    return "Without highlighting if youd dont put auto";
+}
+:::

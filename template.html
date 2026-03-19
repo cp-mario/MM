@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{title}}</title>
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
     <body>
         <button id="icon-btn2">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -17,6 +17,8 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+    
     .note{
         display: flex;
         flex-direction: column;
@@ -80,17 +82,152 @@
         padding-left: 0;
     }
 
+
+
+    .copy-btn {
+        background: transparent;
+        border-color: transparent;
+        display: flex;
+        justify-content: stretch;
+        margin: 2px;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+
+    }
+
+    .copy-btn:hover {
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 5px;
+    }
+
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* codigo inline */
+    .inline-code{
+        border-radius: 5px;
+        background-color: #c3c3c3;
+        padding-inline: 3px;
+    }
+
+    /* todos los codes  */
+    code {
+        font-family: "JetBrains Mono", monospace;
+    }
+
+    /* bloque codigo multilinea  */
+    .multiline-code > code{
+        border-radius: 5px;
+        color: #C9D1D9;
+    }
+
+    /* pre, bloque codigo multilinea, sin highlight   */
+    code:not([data-auto]) {
+        margin: 2px;
+    }
+
+    .multiline-code > code{
+        overflow-x: auto;
+        padding: 1em;
+        margin: 0px;
+        padding-right: 3em !important ;
+    }
+
+    /* pre, bloque codigo multilinea  */
+    .multiline-code{
+        background-color: #0D1117;
+        border-radius: 5px;
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .copy-text{
+        color: white;
+
+    }
+
+    pre.multiline-code .copy-btn.disabled {
+        pointer-events: none;
+        cursor: default;
+    }
+
+
+
 </style>
 
 <script>
     {{script}}
 </script>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 <script>
-    document.querySelectorAll('a[href^="assets/"]').forEach(a => {
-    const original = a.getAttribute("href");
-    a.href = prefix + original;
-});
+    document.addEventListener('DOMContentLoaded', () => {
+        if (typeof hljs !== 'undefined') {
+            document.querySelectorAll('code[data-auto="true"]').forEach(el => {
+                hljs.highlightElement(el);
+            });
+        }
+    });
 
+
+        document.querySelectorAll('a[href^="assets/"]').forEach(a => {
+        const original = a.getAttribute("href");
+        a.href = prefix + original;
+    });
+
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.target = "_self"
+    });
+        document.querySelectorAll('a[href^="pages/"]').forEach(a => {
+        const original = a.getAttribute("href");
+        a.href = prefix + original;
+    });
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('pre.multiline-code .copy-btn').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                // 🔒 1. BLOQUEAR EL BOTÓN INMEDIATAMENTE
+                btn.classList.add('copied', 'disabled');
+                
+                // Guardar el contenido original para restaurarlo después
+                const originalHTML = btn.innerHTML;
+
+                // 2. Cambiar el contenido al estado "Copiado"
+                btn.innerHTML = `
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span class="copy-text">Copiado</span>
+                `;
+
+                try {
+                    const pre = btn.closest('pre.multiline-code');
+                    const code = pre.querySelector('code');
+                    if (!code) throw new Error('No code found');
+
+                    await navigator.clipboard.writeText(code.innerText);
+
+                    // 3. DESBLOQUEAR DESPUÉS DE 2 SEGUNDOS
+                    setTimeout(() => {
+                        btn.classList.remove('copied', 'disabled');
+                        btn.innerHTML = originalHTML;
+                    }, 1000);
+
+                } catch (err) {
+                    console.error('Error al copiar:', err);
+                    // En caso de error, desbloquear inmediatamente para reintentar
+                    btn.classList.remove('copied', 'disabled');
+                    btn.innerHTML = originalHTML;
+                }
+            });
+        });
+    });
 </script>
 </html>

@@ -75,4 +75,4 @@ your-project/
         └── mobile.mmx
 ```
 
-You can see how it is in https://cp-mario.github.io/MMX/ that is made with MMX
+You can see how it is and more info included the MM sintaxis in https://cp-mario.github.io/MMX/ that is made with MMX
