@@ -186,9 +186,9 @@
     });
         document.querySelectorAll('a[href^="pages/"]').forEach(a => {
         const original = a.getAttribute("href");
+        a.target = "_self"
         a.href = prefix + original;
     });
-
 
     document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('pre.multiline-code .copy-btn').forEach(btn => {
