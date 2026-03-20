@@ -80,33 +80,54 @@ function renderNode(node, container) {
   }
 
   if (node.type === "folder") {
-  const header = document.createElement("div");
-  header.classList.add("folder-header");
+    const folderId = "folder_" + node.path; // ID único basado en la ruta
 
-  const icon = document.createElement("span");
-  icon.classList.add("folder-icon");
-  icon.innerHTML = iconExpand; // empieza cerrado
+    const header = document.createElement("div");
+    header.classList.add("folder-header");
 
-  const title = document.createElement("span");
-  title.textContent = node.name;
-  title.classList.add("folder-title");
+    const icon = document.createElement("span");
+    icon.classList.add("folder-icon");
 
-  header.appendChild(icon);
-  header.appendChild(title);
-  container.appendChild(header);
+    const title = document.createElement("span");
+    title.textContent = node.name;
+    title.classList.add("folder-title");
 
-  const sub = document.createElement("div");
-  sub.classList.add("folder-content", "collapsed"); // empieza cerrado
-  sub.style.marginLeft = "15px";
-  container.appendChild(sub);
+    header.appendChild(icon);
+    header.appendChild(title);
+    container.appendChild(header);
 
-  node.children.forEach(child => renderNode(child, sub));
+    const sub = document.createElement("div");
+    sub.classList.add("folder-content");
+    sub.style.marginLeft = "15px";
+    container.appendChild(sub);
 
-  header.addEventListener("click", () => {
-    const collapsed = sub.classList.toggle("collapsed");
-    icon.innerHTML = collapsed ? iconExpand : iconCollapse;
-  });
-}
+    // Renderizar hijos
+    node.children.forEach(child => renderNode(child, sub));
+
+    // --- APLICAR ESTADO GUARDADO ---
+    const savedState = sessionStorage.getItem(folderId);
+    const isCollapsed = savedState === "closed" || savedState === null;
+
+    if (isCollapsed) {
+      sub.classList.add("collapsed");
+      icon.innerHTML = iconExpand;
+    } else {
+      icon.innerHTML = iconCollapse;
+    }
+
+    // --- EVENTO CLICK ---
+    header.addEventListener("click", () => {
+      const collapsed = sub.classList.toggle("collapsed");
+
+      if (collapsed) {
+        icon.innerHTML = iconExpand;
+        sessionStorage.setItem(folderId, "closed");
+      } else {
+        icon.innerHTML = iconCollapse;
+        sessionStorage.setItem(folderId, "open");
+      }
+    });
+  }
 }
 
 
