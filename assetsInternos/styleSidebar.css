@@ -140,10 +140,18 @@ aside a:hover{
   display: flex;
 }
 
+
+@media (min-width: 1000px) {
+  main{
+    margin-left: 300px;
+  }
+
+}
+
 /* Si la sidebar es visible y esta en pc (o pantalla ancha)
 se le pone el margen a la izquierda de lo que ocupa la sidebar
 (las clases pc y sidebarActiva se ponen y quitan dinamicamente
-desde script.js) */
+desde script.js al main) */
 .sidebarActiva.pc{
   margin-left: 300px;
 }

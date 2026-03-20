@@ -30,7 +30,8 @@ main{
     flex-grow: 1;
 }
 
-.plyr {
+.audio{
+    height: 52px;
     margin-top: 30px;
     margin-bottom: 30px;
 }
