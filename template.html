@@ -16,28 +16,28 @@
         
         <!-- Enlazar el script y el css, y calacular la distancia a la raiz para tener el prefijo (prefix) --> 
         <script>
-            const cacheBust = Date.now()
+            const cacheBust = Date.now();
             const path = window.location.pathname;
             const parts = path.split("/").filter(p => p.length > 0);
             const rootIndex = parts.indexOf("pages");
             const depth = rootIndex === -1 ? 0 : parts.length - (rootIndex + 1);
             const prefix = "../".repeat(depth); 
-            const script = document.createElement("script");
             
-            //Cargar script.js
-            script.src = prefix + "assetsInternos/script.js?" + toString(cacheBust)
+            // Cargar script.js
+            const script = document.createElement("script");
+            script.src = prefix + "assetsInternos/script.js?" + cacheBust;
             document.head.appendChild(script);
 
-            //Cargar style.css
+            // Cargar style.css
             const link = document.createElement("link");
             link.rel = "stylesheet";
-            link.href =  prefix + "assetsInternos/style.css?"; + toString(cacheBust)
+            link.href = prefix + "assetsInternos/style.css?" + cacheBust;
             document.head.appendChild(link);
 
-            //Cargar styleSidebar.css
+            // Cargar styleSidebar.css
             const linkSidebar = document.createElement("link");
             linkSidebar.rel = "stylesheet";
-            linkSidebar.href =  prefix + "assetsInternos/styleSidebar.css?"; + toString(cacheBust)
+            linkSidebar.href = prefix + "assetsInternos/styleSidebar.css?" + cacheBust;
             document.head.appendChild(linkSidebar);
         </script>
 
