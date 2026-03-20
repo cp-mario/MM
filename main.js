@@ -1,3 +1,5 @@
+//Este script pertenece a la parte de generación de la documentación, no va a acabar en la documentación final
+
 //imports =========================================
 import fs from "fs";
 import path from "path";

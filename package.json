@@ -1,14 +1,14 @@
 {
-  "name": "mm",
-  "version": "1.0.0",
-  "description": "",
+  "name": "mmx",
+  "version": "1.0.2",
+  "description": "A markdown style documentation creator",
   "main": "main.js",
   "scripts": {
     "main": "node main.js"
   },
   "keywords": [],
   "author": "Mario",
-  "license": "",
+  "license": "MIT",
   "packageManager": "pnpm@10.15.0",
   "type": "module"
 
