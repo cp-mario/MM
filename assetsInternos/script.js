@@ -178,11 +178,14 @@ function cargarMenuHamburguesa(){
       nav.classList.remove("show");
       btn2.classList.remove("active");
       main.classList.remove("sidebarActiva");
+      main.classList.remove("pc");
+      
     } else {
       // Hemos pasado a PC
       nav.classList.add("show");
       btn2.classList.add("active");
       main.classList.add("sidebarActiva");
+      main.classList.add("pc");
     }
   }
 
@@ -199,33 +202,34 @@ function cargarMenuHamburguesa(){
 
 //arreglar rutas hacia assets
 
-    document.querySelectorAll('audio[src^="assets/"]').forEach(audio => {
-        const original = audio.getAttribute("src");
-        audio.src = prefix + original;
-    });
-    document.querySelectorAll('a[href^="assets/"]').forEach(a => {
-    const original = a.getAttribute("href");
-    a.href = prefix + original;
+document.querySelectorAll('audio[src^="assets/"]').forEach(audio => {
+  const original = audio.getAttribute("src");
+  audio.src = prefix + original;
+});
+
+document.querySelectorAll('a[href^="assets/"]').forEach(a => {
+  const original = a.getAttribute("href");
+  a.href = prefix + original;
 });
 
  document.querySelectorAll('video[src^="assets/"]').forEach(video => {
-    const original = video.getAttribute("src");
-    video.src = prefix + original;
+  const original = video.getAttribute("src");
+  video.src = prefix + original;
 });
 
 document.querySelectorAll('img[src^="assets/"]').forEach(img => {
-    const original = img.getAttribute("src");
-    img.src = prefix + original;
+  const original = img.getAttribute("src");
+  img.src = prefix + original;
 });
 
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.target = "_self"
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.target = "_self"
 });
 
-    document.querySelectorAll('a[href^="pages/"]').forEach(a => {
-    const original = a.getAttribute("href");
-    a.target = "_self"
-    a.href = prefix + original;
+document.querySelectorAll('a[href^="pages/"]').forEach(a => {
+  const original = a.getAttribute("href");
+  a.target = "_self"
+  a.href = prefix + original;
 });
 
 

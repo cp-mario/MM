@@ -9,27 +9,13 @@
     gap: 0px;
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: rgb(255, 255, 131);
-    border-radius: 15px;
+    background-color: #fafa8c;
+    border-radius: 5px;
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
     
 }
-
-/* Horizontal */
-@media screen and (orientation: landscape), 
-    screen and (min-width: 1000px) {
-    
-    main {
-        align-items: center;
-        padding-right: 10%;
-        padding-left: 10%;
-    }
-    aside{
-        top: 0;
-        left: 0;
-}}
 
 .note > p{
     margin-top: 2px;
@@ -38,6 +24,9 @@
 
 main{
     margin-bottom: 200px;
+    max-width: 1000px;
+    min-width: 0px;
+    padding-inline: 10%
 }
 
 .plyr {
@@ -55,9 +44,10 @@ font-weight: bolder;
 }
 
 body{
-    display: block;
+    display: flex;
     font-family: "Lato", sans-serif;
     align-items: center;
+    justify-content: center;
     margin: 0;
     background-color: #f3f7fb;
 }
@@ -136,4 +126,16 @@ code:not([data-auto]) {
 pre.multiline-code .copy-btn.disabled {
     pointer-events: none;
     cursor: default;
+}
+
+/* Enlazes todos excepto hover iguales */
+main a,main a:visited,main a:active {
+    color: #00F;
+    text-decoration: none;
+}
+
+/* Enlazes todos hover */
+main a:hover{
+    color: #3ca9c9;
+    text-decoration: none;
 }

@@ -122,7 +122,7 @@ aside a:hover{
   z-index: 9999;
 }
 
-/* Sidebar oculto por defecto */
+/* Sidebar oculto por defecto (display none) + otros ajustes */
 #sidebar{
   display: none;
   position: fixed;
@@ -135,50 +135,20 @@ aside a:hover{
   
 }
 
-/* Sidebar visible */
+/* Sidebar visible, hacerla visible poniendo display flex envex de none */
 #sidebar.show {
   display: flex;
 }
 
-/* Cuando el botón está activo */
+/* Si la sidebar es visible y esta en pc (o pantalla ancha)
+se le pone el margen a la izquierda de lo que ocupa la sidebar
+(las clases pc y sidebarActiva se ponen y quitan dinamicamente
+desde script.js) */
+.sidebarActiva.pc{
+  margin-left: 300px;
+}
+
+/* Cuando el botón está activo hacerlo visible subiendole el z-inde */
 #icon-btn2.active{
   z-index: 0;
-}
-
-@media screen and (max-width: 999px){
-  main {
-    align-items: center;
-    padding-right: 6%;
-    padding-left: 6%;
-  }
-  #icon-btn2{
-    z-index: 9999;
-  }
-}
-
-@media screen and (min-width: 1000px){
-  main.sidebarActiva{
-    margin-left: 300px;
-  }
-  main{
-    margin-left: 0px;
-  }
-}
-
-@media screen and (min-width: 1700px) {
-  main {
-    padding-inline: 500px;
-  }
-  main.sidebarActiva {
-    padding-inline: 300px;
-  }
-}
-
-@media screen and (min-width: 2200px) {
-  main {
-    padding-inline: 1000px;
-  }
-  main.sidebarActiva {
-    padding-inline: 500px;
-  }
 }
