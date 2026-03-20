@@ -35,7 +35,7 @@ fetch(prefix + "assetsInternos/sidebar.html")
     return res.text();
   })
   .then(html => {
-    document.getElementById("sidebar-container").innerHTML = html;
+    document.body.insertAdjacentHTML('beforeend', html);
     cargarMenuHamburguesa()
 
     // ===============================================================
@@ -161,11 +161,6 @@ function renderNode(node, container) {
     }
   });
 })
-.catch(err => {
-  console.error("❌ Error cargando sidebar o índice:", err);
-  document.getElementById("sidebar-container").innerHTML =
-    '<p style="padding:10px">⚠️ Menú no disponible</p>';
-});
 
 
 //Menu hamburguesa
